@@ -51,13 +51,20 @@ var app = {
         console.log('scanning');
         try {
             window.plugins.barcodeScanner.scan(function(args) {
+
                 console.log("Scanner result: \n" +
                     "text: " + args.text + "\n" +
                     "format: " + args.format + "\n" +
                     "cancelled: " + args.cancelled + "\n");
                 
                 if (args.format == "QR_CODE") {
-                    window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+                    console.log('read QR...')
+                    var address = args.text ;
+                     setTimeout(function() {
+                        console.log('launching ...');
+                        window.plugins.childBrowser.showWebPage(address, { showLocationBar: false });
+                        console.log('launched ...');
+                    }, 5000);
                 }
                 
                 document.getElementById("info").innerHTML = args.text;
