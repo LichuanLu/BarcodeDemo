@@ -59,15 +59,16 @@ var app = {
                 
                 if (args.format == "QR_CODE") {
                     console.log('read QR...')
-                    var address = args.text ;
-                     setTimeout(function() {
-                        console.log('launching ...');
-                        window.plugins.childBrowser.showWebPage(address, { showLocationBar: false });
-                        console.log('launched ...');
-                    }, 5000);
+                    // var address = args.text ;
+                    //  setTimeout(function() {
+                    //     console.log('launching ...');
+                    //     window.plugins.childBrowser.showWebPage(address, { showLocationBar: false });
+                    //     console.log('launched ...');
+                    // }, 5000);
                 }
                 
                 document.getElementById("info").innerHTML = args.text;
+                 document.getElementById("info").href = args.text;
                 console.log(args);
         });
         } catch (ex) {
